@@ -1,5 +1,9 @@
 name: 'Gradle Pitest with summary comment'
 description: 'Action to execute pitest in a project with gradle and leave a comment with the summary of the execution'
+inputs:
+  repo-token:
+    description: 'Repository secret'
+    required: true
 runs:
   using: "composite"
   steps:
@@ -30,7 +34,7 @@ runs:
     - name: Delete old comments
       uses: izhangzhihao/delete-comment@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ inputs.repo-token }}
         delete_user_name: 'github-actions[bot]'
 
     - name: Comment
@@ -42,7 +46,7 @@ runs:
           ${{ env.summary_mutation }}
           
           *Check artifacts for the complete report*
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ inputs.repo-token }}
         repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
         allow-repeats: true # This is the default
 
