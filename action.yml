@@ -1,0 +1,47 @@
+name: 'Gradle Pitest with summary comment'
+description: 'Action to execute pitest in a project with gradle and leave a comment with the summary of the execution'
+runs:
+  using: "composite"
+  steps:
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build with Gradle
+        run: ./gradlew clean assemble
+
+    - name: Execute PITest
+      run: |
+        MUTATION_TEST=$(./gradlew pitest)     
+        SUMMARY=${MUTATION_TEST##*=}
+        echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
+        echo ${SUMMARY%%B*} | sed 's/>> /\n/g' >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+      id: mutation-test-execution
+      shell: bash
+
+    - name: Upload report
+      uses: actions/upload-artifact@v2
+      with:
+        name: reports-artifact
+        path: build/reports/pitest
+        retention-days: 1
+
+    - name: Delete old comments
+      uses: izhangzhihao/delete-comment@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        delete_user_name: 'github-actions[bot]'
+
+    - name: Comment
+      uses: mshick/add-pr-comment@v1
+      with:
+        message: |
+          🧟‍♀ Mutation Testing Summary ️🧟‍♀️
+          ================================
+          ${{ env.summary_mutation }}
+          
+          *Check artifacts for the complete report*
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+        allow-repeats: true # This is the default
+
