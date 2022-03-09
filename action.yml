@@ -4,6 +4,14 @@ inputs:
   repo-token:
     description: 'Repository secret'
     required: true
+  reports-retention:
+    description: 'Amount of days to retain the reports as artifact'
+    required: false
+    default: "1"
+  reports-path:
+    description: 'The path where the pitest reports are generated'
+    required: false
+    default: "build/reports/pitest"
 runs:
   using: "composite"
   steps:
@@ -14,6 +22,7 @@ runs:
     - name: Build with Gradle
       run: ./gradlew clean assemble
       shell: bash
+
     - name: Execute PITest
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
@@ -28,8 +37,8 @@ runs:
       uses: actions/upload-artifact@v2
       with:
         name: reports-artifact
-        path: build/reports/pitest
-        retention-days: 1
+        path: ${{ inputs.reports-path }}
+        retention-days: ${{ inputs.reports-retention }}
 
     - name: Delete old comments
       uses: izhangzhihao/delete-comment@master
