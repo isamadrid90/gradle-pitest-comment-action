@@ -12,6 +12,11 @@ inputs:
     description: 'The path where the pitest reports are generated'
     required: false
     default: "build/reports/pitest"
+  delete-old-comments:
+    description: 'Delete the old comments containing execution summary, WARNING! if you activate this option
+    all the previous comments for github-actions[bot] will be removed'
+    required: false
+    default: "false"
 runs:
   using: "composite"
   steps:
@@ -41,6 +46,7 @@ runs:
         retention-days: ${{ inputs.reports-retention }}
 
     - name: Delete old comments
+      if: ${{ inputs.delete-old-comments }}
       uses: izhangzhihao/delete-comment@master
       with:
         github_token: ${{ inputs.repo-token }}
