@@ -46,7 +46,7 @@ runs:
         retention-days: ${{ inputs.reports-retention }}
 
     - name: Delete old comments
-      if: ${{ inputs.delete-old-comments }}
+      if: ${{ inputs.delete-old-comments == "true" }}
       uses: izhangzhihao/delete-comment@master
       with:
         github_token: ${{ inputs.repo-token }}
