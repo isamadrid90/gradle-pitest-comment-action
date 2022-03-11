@@ -22,7 +22,7 @@ inputs:
     required: false
     default: .
   pr-number:
-    description: 'The number of the PR, normally ${{ github.event.number }} Required if you want to delete comments '
+    description: 'The number of the PR, normally  github.event.number  Required if you want to delete comments '
     required: true
 runs:
   using: "composite"
