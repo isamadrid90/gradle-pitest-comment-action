@@ -42,7 +42,7 @@ How to use it 🛠️
 Add action as step
 
 ```yaml
-uses: isamadrid90/gradle-pitest-comment-action@v0
+uses: isamadrid90/gradle-pitest-comment-action@1.0.0
 with:
   repo-token: ${{ secrets.GITHUB_TOKEN }}
   reports-retention: 1
