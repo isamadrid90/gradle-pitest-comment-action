@@ -12,24 +12,28 @@ inputs:
     description: 'The path where the pitest reports are generated'
     required: false
     default: "build/reports/pitest"
-  delete-old-comments:
-    description: 'Delete the old comments containing execution summary, WARNING! if you activate this option
-    all the previous comments for github-actions[bot] will be removed'
+  working-directory:
+    description: 'The directory where gradle can be executed'
     required: false
-    default: 'false'
+    default: .
 runs:
   using: "composite"
   steps:
     - name: Grant execute permission for gradlew
+      working-directory: ${{ inputs.working-directory }}
       run: chmod +x gradlew
       shell: bash
 
     - name: Build with Gradle
       run: ./gradlew clean assemble
+      working-directory: ${{ inputs.working-directory }}
       shell: bash
 
     - name: Execute PITest
+      working-directory: ${{ inputs.working-directory }}
       run: |
+        echo "GITHUB NUMBER"
+        echo ${{ github.event.number }}
         MUTATION_TEST=$(./gradlew pitest)     
         SUMMARY=${MUTATION_TEST##*=}
         echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
@@ -44,13 +48,6 @@ runs:
         name: reports-artifact
         path: ${{ inputs.reports-path }}
         retention-days: ${{ inputs.reports-retention }}
-
-    - name: Delete old comments
-      if: inputs.delete-old-comments == 'true'
-      uses: izhangzhihao/delete-comment@master
-      with:
-        github_token: ${{ inputs.repo-token }}
-        delete_user_name: 'github-actions[bot]'
 
     - name: Comment
       uses: mshick/add-pr-comment@v1
