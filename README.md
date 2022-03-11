@@ -11,14 +11,18 @@ add a comment with the summary of the execution
 
 Prerequisites 📝
 ============
+
 * Gradle
 * PITest plugin
+
 ```kotlin
 plugins {
     id("info.solidsoft.pitest") version "1.7.0"
 }
 ```
+
 * PITest configuration working in local, here an example:
+
 ```kotlin
 pitest {
     setProperty("junit5PluginVersion", "0.12")
@@ -40,6 +44,16 @@ with:
   reports-path: "build/reports/pitest"
   delete-old-comments: "true"
 ```
+
+Inputs
+-------
+
+| Name                | Value             | Default                | Required | Description                                                                                                                                                                                      |
+|---------------------|-------------------|------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| repo-token          | String            | -                      | yes      | Token to upload reports as artifact                                                                                                                                                              |
+| reports-retention   | Int               | 1                      | no       | Retention for the uploaded reports                                                                                                                                                               |
+| reports-path        | String            | "build/reports/pitest" | no       | The path where the pitest reports are saved                                                                                                                                                      |
+| delete-old-comments | "true" or "false" | "false"                | no       | Remove or not previous comments done by github-actions[bot] ⚠️ if this is activated it will remove ALL previous comments done by github-actions[bot], not only the Mutation Testing Summary ones |
 
 Screenshots 📸
 =============
