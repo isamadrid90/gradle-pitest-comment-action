@@ -17,18 +17,25 @@ inputs:
     all the previous comments for github-actions[bot] will be removed'
     required: false
     default: 'false'
+  working-directory:
+    description: 'The directory where gradle can be executed'
+    required: false
+    default: .
 runs:
   using: "composite"
   steps:
     - name: Grant execute permission for gradlew
+      working-directory: ${{ inputs.working-directory }}
       run: chmod +x gradlew
       shell: bash
 
     - name: Build with Gradle
       run: ./gradlew clean assemble
+      working-directory: ${{ inputs.working-directory }}
       shell: bash
 
     - name: Execute PITest
+      working-directory: ${{ inputs.working-directory }}
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
         SUMMARY=${MUTATION_TEST##*=}
