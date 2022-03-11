@@ -16,6 +16,10 @@ inputs:
     description: 'The directory where gradle can be executed'
     required: false
     default: .
+  repeat-comments:
+    description: 'Allow to repeat comments in the same PR'
+    required: false
+    default: "true"
 runs:
   using: "composite"
   steps:
@@ -60,5 +64,5 @@ runs:
           *Check artifacts for the complete report*
         repo-token: ${{ inputs.repo-token }}
         repo-token-user-login: 'github-actions[bot]'
-        allow-repeats: true
+        allow-repeats: ${{ inputs.repeat-comments }}
 
