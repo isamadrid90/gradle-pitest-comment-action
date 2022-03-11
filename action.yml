@@ -32,8 +32,6 @@ runs:
     - name: Execute PITest
       working-directory: ${{ inputs.working-directory }}
       run: |
-        echo "GITHUB NUMBER"
-        echo ${{ github.event.number }}
         MUTATION_TEST=$(./gradlew pitest)     
         SUMMARY=${MUTATION_TEST##*=}
         echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
