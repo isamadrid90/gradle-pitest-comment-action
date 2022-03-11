@@ -1,4 +1,9 @@
 # Introduction
+<p>
+    <a href="https://github.com/isamadrid90/gradle-pitest-comment-action/releases/tag/1.0.0" alt="Version">
+        <img src="https://img.shields.io/badge/version-1.0.0-blue" /></a>
+</p>
+
 
 This is a POC to make it easier to include mutation testing as a part of a regular pipeline,
 it has a lot of room to improvement
