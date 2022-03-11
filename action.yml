@@ -62,6 +62,6 @@ runs:
           
           *Check artifacts for the complete report*
         repo-token: ${{ inputs.repo-token }}
-        repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+        repo-token-user-login: 'github-actions[bot]'
         allow-repeats: true # This is the default
 
