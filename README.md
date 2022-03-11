@@ -6,7 +6,9 @@
 
 
 This is a POC to make it easier to include mutation testing as a part of a regular pipeline,
-it has a lot of room to improvement
+it has a lot of room to improvement.
+
+If you find this action useful let me know by adding a ⭐ this encourage me to keep working on it.
 
 What it does ❓
 ============
