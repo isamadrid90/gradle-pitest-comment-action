@@ -64,7 +64,7 @@ runs:
       with:
         github_token: ${{ inputs.repo-token }}
         delete_user_name: 'github-actions[bot]'
-        issue_number: ${{ github.event.number }}
+        issue_number: ${{ input.pr-number }}
 
     - name: Comment
       uses: mshick/add-pr-comment@v1
