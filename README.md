@@ -1,7 +1,9 @@
 # Introduction
 <p>
-    <a href="https://github.com/isamadrid90/gradle-pitest-comment-action/releases/tag/1.0.0-alpha" alt="Version">
-        <img src="https://img.shields.io/badge/version-1.0.0-blue" /></a>
+    <a href="https://github.com/isamadrid90/gradle-pitest-comment-action/releases/tags">
+        <img src="https://img.shields.io/github/v/tag/isamadrid90/gradle-pitest-comment-action"  alt="Badge for tags"/></a>
+    <img src="https://img.shields.io/badge/stability-beta-33bbff.svg" alt="Beta stability badge"/>
+
 </p>
 
 
@@ -44,7 +46,7 @@ How to use it 🛠️
 Add action as step
 
 ```yaml
-uses: isamadrid90/gradle-pitest-comment-action@1.0.0
+uses: isamadrid90/gradle-pitest-comment-action@v1.0.0-beta
 with:
   repo-token: ${{ secrets.GITHUB_TOKEN }}
   reports-retention: 1
