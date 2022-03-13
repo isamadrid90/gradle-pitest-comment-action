@@ -1,6 +1,6 @@
 # Introduction
 <p>
-    <a href="https://github.com/isamadrid90/gradle-pitest-comment-action/releases/tag/1.0.0" alt="Version">
+    <a href="https://github.com/isamadrid90/gradle-pitest-comment-action/releases/tag/1.0.0-alpha" alt="Version">
         <img src="https://img.shields.io/badge/version-1.0.0-blue" /></a>
 </p>
 
@@ -48,19 +48,19 @@ uses: isamadrid90/gradle-pitest-comment-action@1.0.0
 with:
   repo-token: ${{ secrets.GITHUB_TOKEN }}
   reports-retention: 1
-  reports-path: "build/reports/pitest"
-  delete-old-comments: "true"
+  reports-path: "project/build/reports/pitest"
+  working-directory: project
 ```
 
 Inputs
 -------
 
-| Name                | Value             | Default                | Required | Description                                                                                                                                                                                      |
-|---------------------|-------------------|------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| repo-token          | String            | -                      | yes      | Token to upload reports as artifact                                                                                                                                                              |
-| reports-retention   | Int               | 1                      | no       | Retention for the uploaded reports                                                                                                                                                               |
-| reports-path        | String            | "build/reports/pitest" | no       | The path where the pitest reports are saved                                                                                                                                                      |
-| delete-old-comments | "true" or "false" | "false"                | no       | Remove or not previous comments done by github-actions[bot] ⚠️ if this is activated it will remove ALL previous comments done by github-actions[bot], not only the Mutation Testing Summary ones |
+| Name              | Value  | Default                | Required | Description                                    |
+|-------------------|--------|------------------------|----------|------------------------------------------------|
+| repo-token        | String | -                      | yes      | Token to upload reports as artifact            |
+| reports-retention | Int    | 1                      | no       | Retention for the uploaded reports             |
+| reports-path      | String | "build/reports/pitest" | no       | The path where the pitest reports are saved    |
+| working-directory | String | "."                    | no       | Path to directory where gradle can be executed |
 
 Screenshots 📸
 =============
