@@ -41,14 +41,14 @@ runs:
       shell: bash
 
     - name: Upload report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: reports-artifact
         path: ${{ inputs.reports-path }}
         retention-days: ${{ inputs.reports-retention }}
 
     - name: Comment
-      uses: mshick/add-pr-comment@v1
+      uses: mshick/add-pr-comment@v2
       with:
         message: |
           🧟‍♀ Mutation Testing Summary ️🧟‍♀️
