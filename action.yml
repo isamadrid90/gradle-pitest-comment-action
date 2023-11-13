@@ -34,9 +34,7 @@ runs:
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
         SUMMARY=${MUTATION_TEST##*=}
-        echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
-        echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d' >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
+        echo "::set-output name=summary_mutation::$(echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d')
       id: mutation-test-execution
       shell: bash
 
@@ -47,16 +45,27 @@ runs:
         path: ${{ inputs.reports-path }}
         retention-days: ${{ inputs.reports-retention }}
 
-    - name: Comment
-      uses: mshick/add-pr-comment@v2
+    - name: Comment on Pull Request
+      uses: actions/github-script@v5
       with:
-        message: |
-          🧟‍♀ Mutation Testing Summary ️🧟‍♀️
-          ================================
-          ${{ env.summary_mutation }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const artifactUrl = '${{ steps.artifact-url.outputs.artifact_url }}';
+          const prNumber = '${{ github.event.pull_request.number }}';
+          const repoOwner = '${{ github.repository_owner }}';
+          const repoName = '${{ github.repository_name }}';
+          const octokit = github.getOctokit('${{ secrets.GITHUB_TOKEN }}');
           
-          *Check artifacts for the complete report*
-        repo-token: ${{ inputs.repo-token }}
-        repo-token-user-login: 'github-actions[bot]'
-        allow-repeats: true
+          await octokit.rest.issues.createComment({
+            owner: repoOwner,
+            repo: repoName,
+            issue_number: prNumber,
+            body: `
+              🧟‍♀ Mutation Testing Summary ️🧟‍♀️
+              ================================
+              ${{ steps.mutation-test-execution.outputs.summary_mutation }}
+              
+              *Check artifacts for the complete report*
+          `,
+          });
 
