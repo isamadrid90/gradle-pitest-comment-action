@@ -55,13 +55,7 @@ runs:
           const repoOwner = '${{ github.repository_owner }}';
           const repoName = '${{ github.repository_name }}';
           const octokit = github.getOctokit('${{ secrets.GITHUB_TOKEN }}');
-          const message=  '
-              🧟‍♀ Mutation Testing Summary ️🧟‍♀️
-              ================================
-              ${{ steps.mutation-test-execution.outputs.summary_mutation }}
-          
-              *Check artifacts for the complete report*
-          '
+          const message = ${{ steps.mutation-test-execution.outputs.summary_mutation }}
           
           await octokit.rest.issues.createComment({
             owner: repoOwner,
