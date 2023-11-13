@@ -48,7 +48,7 @@ runs:
     - name: Comment on Pull Request
       uses: actions/github-script@v5
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ inputs.repo-token }}
         script: |
           const artifactUrl = '${{ steps.artifact-url.outputs.artifact_url }}';
           const prNumber = '${{ github.event.pull_request.number }}';
