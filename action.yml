@@ -54,7 +54,7 @@ runs:
           const prNumber = '${{ github.event.pull_request.number }}';
           const repoOwner = '${{ github.repository_owner }}';
           const repoName = '${{ github.repository_name }}';
-          const octokit = github.getOctokit('${{ secrets.GITHUB_TOKEN }}');
+          const octokit = github.getOctokit('${{ inputs.repo-token }}');
           const message = ${{ steps.mutation-test-execution.outputs.summary_mutation }}
           
           await octokit.rest.issues.createComment({
