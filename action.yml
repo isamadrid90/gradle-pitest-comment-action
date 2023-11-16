@@ -57,10 +57,10 @@ runs:
           const octokit = github.getOctokit('${{ inputs.repo-token }}');
           const message = '${{ steps.mutation-test-execution.outputs.summary_mutation }}'
           
-          await octokit.rest.issues.createComment({
-            owner: repoOwner,
-            repo: repoName,
-            issue_number: prNumber,
-            body: message
-          });
+#          await octokit.rest.issues.createComment({
+#            owner: repoOwner,
+#            repo: repoName,
+#            issue_number: prNumber,
+#            body: message
+#          });
 
