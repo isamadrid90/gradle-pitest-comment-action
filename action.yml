@@ -34,7 +34,7 @@ runs:
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
         SUMMARY=${MUTATION_TEST##*=}
-        echo "::set-output name=summary_mutation::$(echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d')
+        echo "::set-output name=summary_mutation::$(echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d')"
       id: mutation-test-execution
       shell: bash
 
