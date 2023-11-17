@@ -51,7 +51,7 @@ runs:
         github-token: ${{ inputs.repo-token }}
         script: |
           const artifactUrl = '${{ steps.artifact-url.outputs.artifact_url }}';
-#          const prNumber = '${{ github.event.pull_request.number }}';
+          const prNumber = '${{ github.event.pull_request.number }}';
 #          const repoOwner = '${{ github.repository_owner }}';
 #          const repoName = '${{ github.repository_name }}';
 #          const octokit = github.getOctokit('${{ inputs.repo-token }}');
