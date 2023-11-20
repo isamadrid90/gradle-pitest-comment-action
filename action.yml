@@ -54,10 +54,9 @@ runs:
     - name: Comment on Pull Request
       uses: actions/github-script@v7
       with:
-        github-token: ${{ inputs.repo-token }}
         script: |
           const artifactUrl = '${{ steps.artifact-url.outputs.artifact_url }}';
-          const prNumber = '${{ context.issue.number }}';
+          const prNumber = '${{ github.event.pull_request.number }}';
           const repoOwner = '${{ context.repo.owner }}';
           const repoName = '${{ context.repo.repo }}';
           const message = '${{ steps.mutation-test-execution.outputs.summary_mutation }}'
