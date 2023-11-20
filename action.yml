@@ -61,24 +61,19 @@ runs:
           const repoOwner = '${{ github.repository_owner }}';
           const repoName = '${{ github.repository_name }}';
           const message = '${{ steps.mutation-test-execution.outputs.summary_mutation }}'
-          const octokit = github.getOctokit('${{ inputs.repo-token }}');
           
           const commentMessage = "Thank you for your pull request! 🚀";
           
-          // Ensure the event is a pull request event
-          if (github.context.eventName === 'pull_request') {
-            const prNumber = github.context.payload.pull_request.number;
+          const prNumber = github.context.payload.pull_request.number;
 
-            // Post comment
-            await github.issues.createComment({
-              owner: github.context.repo.owner,
-              repo: github.context.repo.repo,
-              issue_number: prNumber,
-              body: commentMessage,
-            });
-          } else {
-            console.log('Not a pull request event. No comment will be posted.');
-          }
+          // Post comment
+          await github.issues.createComment({
+            owner: github.context.repo.owner,
+            repo: github.context.repo.repo,
+            issue_number: prNumber,
+            body: commentMessage,
+          });
+          
 
 
 #          await octokit.rest.issues.createComment({
