@@ -64,8 +64,6 @@ runs:
           
           const commentMessage = "Thank you for your pull request! 🚀";
           
-          const prNumber = github.context.payload.pull_request.number;
-
           // Post comment
           await github.issues.createComment({
             owner: github.context.repo.owner,
