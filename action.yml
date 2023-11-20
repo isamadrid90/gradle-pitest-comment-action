@@ -49,13 +49,14 @@ runs:
       id: artifact-url
       shell: bash
       run: |
-        echo "::set-output name=artifact_url::$(curl -s -H \"Authorization:Bearer ${{ inputs.repo-token }}\" -X POST -H \"Accept: application/vnd.github.v3+json\" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[0].archive_download_url')"
+        echo "artifact_url=$(curl -s -H \"Authorization:Bearer ${{ inputs.repo-token }}\" -X POST -H \"Accept: application/vnd.github.v3+json\" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[0].archive_download_url')" >> $GITHUB_OUTPUT
 
     - name: Comment on Pull Request
       uses: actions/github-script@v5
       with:
         github-token: ${{ inputs.repo-token }}
         script: |
+          const github = require('@actions/github');
           const artifactUrl = '${{ steps.artifact-url.outputs.artifact_url }}';
           const prNumber = '${{ github.event.pull_request.number }}';
           const repoOwner = '${{ github.repository_owner }}';
