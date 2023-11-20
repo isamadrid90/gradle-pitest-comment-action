@@ -66,8 +66,8 @@ runs:
           
           // Post comment
           await github.rest.issues.createComment({
-            owner: github.context.repo.owner,
-            repo: github.context.repo.repo,
+            owner: repoOwner,
+            repo: repoName,
             issue_number: prNumber,
             body: commentMessage,
           });
