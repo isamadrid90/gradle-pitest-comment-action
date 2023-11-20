@@ -60,8 +60,14 @@ runs:
           const prNumber = '${{ github.event.pull_request.number }}';
           const repoOwner = '${{ github.repository_owner }}';
           const repoName = '${{ github.repository_name }}';
-          const octokit = getOctokit('${{ inputs.repo-token }}');
           const message = '${{ steps.mutation-test-execution.outputs.summary_mutation }}'
+          
+          await github.issues.createComment({
+              owner: github.context.repo.owner,
+              repo: github.context.repo.repo,
+              issue_number: prNumber,
+              body: "This is a comment inside the pull request",
+            })
           
 #          await octokit.rest.issues.createComment({
 #            owner: repoOwner,
