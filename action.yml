@@ -65,7 +65,7 @@ runs:
           const commentMessage = "Thank you for your pull request! 🚀";
           
           // Post comment
-          await github.issues.createComment({
+          await github.rest.issues.createComment({
             owner: github.context.repo.owner,
             repo: github.context.repo.repo,
             issue_number: prNumber,
