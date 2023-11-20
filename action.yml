@@ -56,12 +56,12 @@ runs:
       with:
         github-token: ${{ inputs.repo-token }}
         script: |
-          const github = require('@actions/github');
           const artifactUrl = '${{ steps.artifact-url.outputs.artifact_url }}';
           const prNumber = '${{ github.event.pull_request.number }}';
           const repoOwner = '${{ github.repository_owner }}';
           const repoName = '${{ github.repository_name }}';
           const message = '${{ steps.mutation-test-execution.outputs.summary_mutation }}'
+          const octokit = github.getOctokit('${{ inputs.repo-token }}');
           
           const commentMessage = "Thank you for your pull request! 🚀";
           
