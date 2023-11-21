@@ -37,7 +37,7 @@ runs:
         echo '-------'
         echo $SUMMARY
         echo '-------'
-        echo ${MUTATION_TEST} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d'
+        echo ${MUTATION_TEST} | sed -n '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d'
         echo '-------'
         echo 'summary_mutation<<EOF' >> $GITHUB_ENV  
         echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d' >> $GITHUB_ENV
