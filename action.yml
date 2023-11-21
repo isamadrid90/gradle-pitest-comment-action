@@ -57,7 +57,7 @@ runs:
       uses: actions/github-script@v7
       with:
         script: |
-          console.log(github.event_name)
+          console.log(context.issue.number)
           console.log(context)
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
           //const prNumber = github.event.pull_request.number;
