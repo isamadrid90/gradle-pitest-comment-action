@@ -60,6 +60,7 @@ runs:
           if (context.issue.number) {
             // Return issue number if present
             const prNumber = context.issue.number;
+            console.log(prNumber)
           } else {
             // Otherwise return issue number from commit
             const prNumber = (
@@ -69,9 +70,10 @@ runs:
             repo: context.repo.repo,
           })
             ).data[0].number;
+            console.log(prNumber)
           }
           
-          console.log(prNumber)
+          
           console.log(context)
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
           //const prNumber = github.event.pull_request.number;
