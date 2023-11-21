@@ -79,26 +79,18 @@ runs:
       with:
         script: |
           const prNumber = '${{ env.PR }}';
-          console.log('PrNumber'+ prNumber)
-          console.log(context)
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
-          //const prNumber = github.event.pull_request.number;
+          
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
           const message = '${{ env.summary_mutation }}'
-          
-          const commentMessage = "Thank you for your pull request! 🚀";
-          
-          console.log('PrNumber'+ prNumber)
-          console.log('Repo Owner'+ repoOwner)
-          console.log('Repo Name'+ repoName)
           
           // Post comment
           await github.rest.issues.createComment({
             owner: repoOwner,
             repo: repoName,
             issue_number: prNumber,
-            body: commentMessage,
+            body: message,
           });
           
 
