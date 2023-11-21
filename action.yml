@@ -58,7 +58,7 @@ runs:
       with:
         script: |
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
-          const prNumber = github.event.number;
+          const prNumber = github.event.pull_request.number;
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
           const message = '${{ env.summary_mutation }}'
