@@ -39,7 +39,7 @@ runs:
         echo '-------'
         echo $SUMMARY
         echo '-------'
-        RESULT_OK=$(sed -n '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' exec_output.txt )
+        RESULT_OK=$(sed -n "/- Statistics/p" exec_output.txt )
         echo $RESULT_OK
         echo '-------'
         echo 'summary_mutation<<EOF' >> $GITHUB_ENV  
