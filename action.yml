@@ -34,7 +34,9 @@ runs:
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
         SUMMARY=${MUTATION_TEST##*=}
-        echo "summary_mutation=$(echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d')" >> $GITHUB_OUTPUT
+        echo 'summary_mutation<<EOF' >> $GITHUB_ENV  
+        echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d' >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
       id: mutation-test-execution
       shell: bash
 
@@ -59,7 +61,7 @@ runs:
           const prNumber = github.event.pull_request.number;
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
-          const message = '${{ steps.mutation-test-execution.outputs.summary_mutation }}'
+          const message = ${{ env.summary_mutation }}
           
           const commentMessage = "Thank you for your pull request! 🚀";
           
