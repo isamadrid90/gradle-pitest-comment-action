@@ -34,6 +34,11 @@ runs:
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
         SUMMARY=${MUTATION_TEST##*=}
+        echo '-------'
+        echo $SUMMARY
+        echo '-------'
+        echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d'
+        echo '-------'
         echo 'summary_mutation<<EOF' >> $GITHUB_ENV  
         echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d' >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
@@ -76,6 +81,7 @@ runs:
       uses: actions/github-script@v7
       env:
         PR: ${{ steps.get_issue_number.outputs.result }}
+        SUMMARY_MUTATION: ${{ steps.get_issue_number.outputs.result }}
       with:
         script: |
           const prNumber = '${{ env.PR }}';
