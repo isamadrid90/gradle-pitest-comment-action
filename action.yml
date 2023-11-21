@@ -32,20 +32,11 @@ runs:
     - name: Execute PITest
       working-directory: ${{ inputs.working-directory }}
       run: |
-        touch exec_output.txt
         MUTATION_TEST=$(./gradlew pitest)     
-        SUMMARY=${MUTATION_TEST##*=}
-        echo $MUTATION_TEST >> exec_output.txt
-        echo '-------'
-        echo $SUMMARY
-        echo '-------'
         PIT_RESULT=${MUTATION_TEST##*Task :pitest}
-        echo $PIT_RESULT
         SUMMARY=${PIT_RESULT##*- Statistics}
-        echo $SUMMARY
-        echo '-------'
-        echo 'summary_mutation<<EOF' >> $GITHUB_ENV  
-        echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d' >> $GITHUB_ENV
+        echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
+        echo ${SUMMARY%%B*} | sed 's/>> /\n/g' >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
       id: mutation-test-execution
       shell: bash
@@ -86,7 +77,6 @@ runs:
       uses: actions/github-script@v7
       env:
         PR: ${{ steps.get_issue_number.outputs.result }}
-        SUMMARY_MUTATION: ${{ steps.get_issue_number.outputs.result }}
       with:
         script: |
           const prNumber = '${{ env.PR }}';
