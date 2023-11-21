@@ -86,6 +86,11 @@ runs:
           const repoName = context.repo.repo;
           const message = '${{ env.summary_mutation }}'
           
+          console.log(repoOwner)
+          console.log(repoName)
+          console.log(message)
+          console.log(prNumber)
+          
           // Post comment
           await github.rest.issues.createComment({
             owner: repoOwner,
