@@ -57,7 +57,7 @@ runs:
       uses: actions/github-script@v7
       with:
         script: |
-          const artifactUrl = steps.artifact-url.outputs.artifact_url;
+          // const artifactUrl = steps.artifact-url.outputs.artifact_url;
           const prNumber = github.event.pull_request.number;
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
