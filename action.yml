@@ -58,12 +58,16 @@ runs:
       with:
         script: |
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
-          const prNumber = context.issue.number;
+          const prNumber = github.event.number;
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
           const message = '${{ env.summary_mutation }}'
           
           const commentMessage = "Thank you for your pull request! 🚀";
+          
+          console.log('PrNumber'+ prNumber)
+          console.log('Repo Owner'+ repoOwner)
+          console.log('Repo Name'+ repoName)
           
           // Post comment
           await github.rest.issues.createComment({
