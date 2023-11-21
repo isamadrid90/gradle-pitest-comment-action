@@ -57,7 +57,21 @@ runs:
       uses: actions/github-script@v7
       with:
         script: |
-          console.log(context.issue.number)
+          if (context.issue.number) {
+            // Return issue number if present
+            const prNumber = context.issue.number;
+          } else {
+            // Otherwise return issue number from commit
+            const prNumber = (
+            await github.rest.repos.listPullRequestsAssociatedWithCommit({
+            commit_sha: context.sha,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          })
+            ).data[0].number;
+          }
+          
+          console.log(prNumber)
           console.log(context)
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
           //const prNumber = github.event.pull_request.number;
