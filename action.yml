@@ -39,8 +39,10 @@ runs:
         echo '-------'
         echo $SUMMARY
         echo '-------'
-        VAR1=${MUTATION_TEST##*- Statistics}
-        echo $VAR1
+        PIT_RESULT=${MUTATION_TEST##*Task :pitest}
+        echo $PIT_RESULT
+        SUMMARY=${PIT_RESULT##*- Statistics}
+        echo $SUMMARY
         echo '-------'
         echo 'summary_mutation<<EOF' >> $GITHUB_ENV  
         echo ${SUMMARY%%B*} | sed '/- Statistics/,/Enhanced functionality available at https:\/\/www\.arcmutate\.com\//p' | sed '$d' >> $GITHUB_ENV
