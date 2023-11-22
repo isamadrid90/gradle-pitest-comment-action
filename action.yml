@@ -90,7 +90,7 @@ runs:
             owner: repoOwner,
             repo: repoName,
             issue_number: prNumber,
-            body: message,
+            body: message.replace('=', '').replace('>>', '\n'),
           });
 
 
