@@ -82,7 +82,7 @@ runs:
           console.log("MESSAGE")
           console.log(context.repo.owner)
           console.log(context.repo.repo)
-          console.log("${{ env.summary_mutation }}")
+          // console.log("${{ env.summary_mutation }}")
           console.log("${{ env.PR }}")
           
           const prNumber = '${{ env.PR }}';
