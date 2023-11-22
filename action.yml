@@ -82,15 +82,15 @@ runs:
           console.log("MESSAGE")
           console.log(context.repo.owner)
           console.log(context.repo.repo)
-          console.log(${{ env.summary_mutation }})
-          console.log(${{ env.PR }})
+          console.log("${{ env.summary_mutation }}")
+          console.log("${{ env.PR }}")
           
           const prNumber = '${{ env.PR }}';
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
           
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
-          const message = '${{ env.summary_mutation }}'
+          const message = "${{ env.summary_mutation }}"
           
           // Post comment
           await github.rest.issues.createComment({
