@@ -79,17 +79,18 @@ runs:
         PR: ${{ steps.get_issue_number.outputs.result }}
       with:
         script: |
+          console.log("MESSAGE")
+          console.log(context.repo.owner)
+          console.log(context.repo.repo)
+          console.log(${{ env.summary_mutation }})
+          console.log(${{ env.PR }})
+          
           const prNumber = '${{ env.PR }}';
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
           
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
           const message = '${{ env.summary_mutation }}'
-          
-          console.log(repoOwner)
-          console.log(repoName)
-          console.log(message)
-          console.log(prNumber)
           
           // Post comment
           await github.rest.issues.createComment({
