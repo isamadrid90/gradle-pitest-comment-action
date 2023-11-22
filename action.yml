@@ -35,9 +35,11 @@ runs:
         MUTATION_TEST=$(./gradlew pitest)     
         PIT_RESULT=${MUTATION_TEST##*Task :pitest}
         SUMMARY=${PIT_RESULT##*- Statistics}
-        echo 'summary_mutation=<<EOF' >> $GITHUB_ENV      
-        echo '"' | ${SUMMARY%%B*} | sed 's/>> /\n/g' | echo '"' >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
+#        echo 'summary_mutation=<<EOF' >> $GITHUB_ENV
+#        echo '"' | ${SUMMARY%%B*} | sed 's/>> /\n/g' | echo '"' >> $GITHUB_ENV
+#        echo 'EOF' >> $GITHUB_ENV
+        
+        echo "summary_mutation=\"${SUMMARY%%B*}\"" >> $GITHUB_OUTPUT
       id: mutation-test-execution
       shell: bash
 
@@ -77,6 +79,7 @@ runs:
       uses: actions/github-script@v7
       env:
         PR: ${{ steps.get_issue_number.outputs.result }}
+        MUTATION: ${{ steps.mutation-test-execution.outputs.summary_mutation }}
       with:
         script: |
           console.log("MESSAGE")
