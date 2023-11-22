@@ -35,8 +35,8 @@ runs:
         MUTATION_TEST=$(./gradlew pitest)     
         PIT_RESULT=${MUTATION_TEST##*Task :pitest}
         SUMMARY=${PIT_RESULT##*- Statistics}
-        echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
-        echo ${SUMMARY%%B*} | sed 's/>> /\n/g' >> $GITHUB_ENV
+        echo 'summary_mutation=<<EOF' >> $GITHUB_ENV      
+        echo '"' | ${SUMMARY%%B*} | sed 's/>> /\n/g' | echo '"' >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
       id: mutation-test-execution
       shell: bash
