@@ -34,8 +34,8 @@ runs:
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
         PIT_RESULT=${MUTATION_TEST##*Task :pitest}
-        SUMMARY=${PIT_RESULT##*- Statistics}
-        echo "summary_mutation=$(echo ${SUMMARY%%B*})" >> $GITHUB_OUTPUT
+        SUMMARY=${PIT_RESULT##*- Statistics ================================================================================}
+        echo "summary_mutation=$(echo ${SUMMARY%%B*} | sed 's/>> /\n/g')" >> $GITHUB_OUTPUT
       id: mutation-test-execution
       shell: bash
 
@@ -78,12 +78,6 @@ runs:
         MUTATION: ${{ steps.mutation-test-execution.outputs.summary_mutation }}
       with:
         script: |
-          console.log("MESSAGE")
-          console.log(context.repo.owner)
-          console.log(context.repo.repo)
-          console.log("${{ env.PR }}")
-          console.log("${{ env.MUTATION }}")
-          
           const prNumber = '${{ env.PR }}';
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
           
