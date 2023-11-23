@@ -35,7 +35,10 @@ runs:
         MUTATION_TEST=$(./gradlew pitest)     
         PIT_RESULT=${MUTATION_TEST##*Task :pitest}
         SUMMARY=${PIT_RESULT##*- Statistics}
-        echo "summary_mutation=$(echo ${SUMMARY%%B*}" >> $GITHUB_OUTPUT
+        echo "summary_mutation=\"${SUMMARY%%B*}\"" >> $GITHUB_OUTPUT
+#        echo 'summary_mutation=<<EOF' >> $GITHUB_ENV
+#        echo '"' | ${SUMMARY%%B*} | sed 's/>> /\n/g' | echo '"' >> $GITHUB_ENV
+#        echo 'EOF' >> $GITHUB_ENV
       id: mutation-test-execution
       shell: bash
 
@@ -78,6 +81,12 @@ runs:
         MUTATION: ${{ steps.mutation-test-execution.outputs.summary_mutation }}
       with:
         script: |
+          console.log("MESSAGE")
+          console.log(context.repo.owner)
+          console.log(context.repo.repo)
+          
+          console.log("${{ env.PR }}")
+          
           const prNumber = '${{ env.PR }}';
           // const artifactUrl = steps.artifact-url.outputs.artifact_url;
           
