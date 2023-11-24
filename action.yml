@@ -75,7 +75,6 @@ runs:
           const mutationSummary = "${{ env.MUTATION }}"
           if (!updateText) {
             console.error("Empty Mutation Summary")
-            exit 1
           }
           const prNumber = '${{ env.PR }}';
           const repoOwner = context.repo.owner;
@@ -94,7 +93,6 @@ runs:
             issue_number: prNumber,
             body: message
           });
-          
-          exit 0;
+
 
 
