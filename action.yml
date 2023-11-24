@@ -84,7 +84,7 @@ runs:
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
           const message = "${{ env.MUTATION }}"
-          console.log("MESSAGE" + message.replace('/=/g', ''))
+          console.log("MESSAGE \n" + message.replace(/=/g, '').replace(/>>/g, '\n'))
           
           // Post comment
           await github.rest.issues.createComment({
