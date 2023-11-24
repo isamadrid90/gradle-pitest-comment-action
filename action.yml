@@ -83,8 +83,13 @@ runs:
           
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
-          const message = "${{ env.MUTATION }}"
-          console.log("MESSAGE \n" + message.replace(/=/g, '').replace(/>>/g, '\n'))
+          const mutationSummary = "${{ env.MUTATION }}".replace(/=/g, '').replace(/>>/g, '\n')
+          const message = "🧟‍♀ Mutation Testing Summary ️🧟‍♀️\n" +
+            "================================ \n" +
+            + mutationSummary
+            + "\n" +
+            "Check artifacts for the complete report"
+          console.log("MESSAGE \n" + message)
           
           // Post comment
           await github.rest.issues.createComment({
