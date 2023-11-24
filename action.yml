@@ -84,9 +84,12 @@ runs:
           const repoOwner = context.repo.owner;
           const repoName = context.repo.repo;
           const mutationSummary = "${{ env.MUTATION }}"
+          console.log("SUMMARY \n" + mutationSummary)
+          console.log("SUMMARY \n" + mutationSummary.replace(/=/g, ''))
+          console.log("SUMMARY \n" + mutationSummary.replace(/=/g, '').replace(/>>/g, '\n'))
           const message = "🧟‍♀ Mutation Testing Summary ️🧟‍♀️\n" +
             "================================ \n" +
-            + mutationSummary.replace(/=/g, '').replace(/>>/g, '\n')
+            + mutationSummary.replace(/=/g, '').replace(/>>/g, '\n') +
             + "\n" +
             "Check artifacts for the complete report"
           console.log("MESSAGE \n" + message)
