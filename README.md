@@ -2,15 +2,16 @@
 <p>
     <a href="https://github.com/isamadrid90/gradle-pitest-comment-action/releases/tags">
         <img src="https://img.shields.io/github/v/tag/isamadrid90/gradle-pitest-comment-action"  alt="Badge for tags"/></a>
-    <img src="https://img.shields.io/badge/stability-beta-33bbff.svg" alt="Beta stability badge"/>
+    <img src="https://img.shields.io/badge/stability-stable-green.svg" alt="Stable stability badge"/>
 
 </p>
 
 
-This is a POC to make it easier to include mutation testing as a part of a regular pipeline,
-it has a lot of room to improvement.
+This action makes easier to include mutation testing as a part of a Github Action pipeline.
 
 If you find this action useful let me know by adding a ⭐ this encourage me to keep working on it.
+
+Happy to hear any suggestions or improvements.
 
 What it does ❓
 ============
