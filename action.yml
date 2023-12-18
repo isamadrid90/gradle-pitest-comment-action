@@ -34,7 +34,8 @@ runs:
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
         PIT_RESULT=${MUTATION_TEST##*Task :pitest}
-        SUMMARY=${PIT_RESULT##*- Statistics}
+        STATISTICS=${PIT_RESULT##*- Statistics}
+        SUMMARY=${STATISTICS%%mutation)*}
         echo "summary_mutation=$(echo ${SUMMARY%%B*})" >> $GITHUB_OUTPUT
       id: mutation-test-execution
       shell: bash
@@ -81,7 +82,7 @@ runs:
             const repoOwner = context.repo.owner;
             const repoName = context.repo.repo;
             const mutationSummaryFormatted = mutationSummary.replace(/=/g, '').replace(/>>/g, '\n')
-            const message = "🧟‍♀ Mutation Testing Summary ️🧟‍♀️\n" +
+            const message = "Mutation Testing Summary\n" +
               "================================ \n" +
               mutationSummaryFormatted +
               "\n" +
