@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>FizzBuzzTranslator.kt</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.isamadrid90.fizzbuzz</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class FizzBuzzTranslator(private val counter: Counter) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    fun execute(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        start: Int,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        end: Int,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ): List&#60;String&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        val list = mutableListOf&#60;String&#62;()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        counter.count(start, end).map {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            when {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_11'/>
+11
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_11'>1</a>
+<span>
+1. execute : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                it.isMultipleOf(15) -&#62; list.add(multipleOf15Translation())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_12'/>
+12
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_12'>1</a>
+<span>
+1. execute : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                it.isMultipleOf(3) -&#62; list.add(multipleOf3Translation())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_13'/>
+13
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_13'>1</a>
+<span>
+1. execute : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                it.isMultipleOf(5) -&#62; list.add(multipleOf5Translation())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                else -&#62; list.add(&#34;$it&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_17'/>
+17
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_17'>1</a>
+<span>
+1. execute : replaced return value with Collections.emptyList for com/isamadrid90/fizzbuzz/FizzBuzzTranslator::execute &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_20'>1</a>
+<span>
+1. multipleOf5Translation : replaced return value with &#34;&#34; for com/isamadrid90/fizzbuzz/FizzBuzzTranslator::multipleOf5Translation &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private fun multipleOf5Translation() = &#34;Buzz&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_22'/>
+22
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_22'>1</a>
+<span>
+1. multipleOf3Translation : replaced return value with &#34;&#34; for com/isamadrid90/fizzbuzz/FizzBuzzTranslator::multipleOf3Translation &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private fun multipleOf3Translation() = &#34;Fizz&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_24'>1</a>
+<span>
+1. multipleOf15Translation : replaced return value with &#34;&#34; for com/isamadrid90/fizzbuzz/FizzBuzzTranslator::multipleOf15Translation &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private fun multipleOf15Translation() = &#34;FizzBuzz&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>private fun Int.isMultipleOf(multiple: Int): Boolean {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_28'>3</a>
+<span>
+1. isMultipleOf : negated conditional &rarr; KILLED<br/>
+2. isMultipleOf : replaced boolean return with true for com/isamadrid90/fizzbuzz/FizzBuzzTranslatorKt::isMultipleOf &rarr; KILLED<br/>
+3. isMultipleOf : Replaced integer modulus with multiplication &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return this % multiple == 0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b6ec132_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_11'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>execute<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_12'>12</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_12'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>execute<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_13'>13</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_13'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>execute<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Buzz when number is multiple of 5()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_17'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>execute<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()]</span></span> replaced return value with Collections.emptyList for com/isamadrid90/fizzbuzz/FizzBuzzTranslator::execute &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>multipleOf5Translation<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Buzz when number is multiple of 5()]</span></span> replaced return value with &#34;&#34; for com/isamadrid90/fizzbuzz/FizzBuzzTranslator::multipleOf5Translation &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_22'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>multipleOf3Translation<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()]</span></span> replaced return value with &#34;&#34; for com/isamadrid90/fizzbuzz/FizzBuzzTranslator::multipleOf3Translation &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>multipleOf15Translation<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return FizzBuzz when number is multiple of 3 and 5()]</span></span> replaced return value with &#34;&#34; for com/isamadrid90/fizzbuzz/FizzBuzzTranslator::multipleOf15Translation &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isMultipleOf<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isMultipleOf<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()]</span></span> replaced boolean return with true for com/isamadrid90/fizzbuzz/FizzBuzzTranslatorKt::isMultipleOf &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isMultipleOf<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()]</span></span> Replaced integer modulus with multiplication &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b6ec132_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b6ec132_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>execute<br/><b>Killed by : </b>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz when number is multiple of 3()] (1 ms)</li><li>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return FizzBuzz when number is multiple of 3 and 5()] (1 ms)</li><li>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Buzz when number is multiple of 5()] (1 ms)</li><li>com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.FizzBuzzTranslatorTest]/[method:should return Fizz, Buzz,FizzBuzz or number with a complete range()] (680 ms)</li><li>com.isamadrid90.fizzbuzz.MainTest.[engine:junit-jupiter]/[class:com.isamadrid90.fizzbuzz.MainTest]/[method:should print all the number between 1 and 100()] (30 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>
