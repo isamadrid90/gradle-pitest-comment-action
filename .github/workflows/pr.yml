@@ -28,17 +28,16 @@ jobs:
     needs: execute-action
     steps:
         - name: Download artifact
-          uses: actions/download-artifact@v2
+          uses: actions/download-artifact@v3
           with:
             name: reports-artifact
-            path: /tmp
+            path: build
         - name: Check if file exists
           run: |
-            echo $(ls -1 /tmp)
-            if [ -f "/tmp/reports-artifact.zip" ]; then
+            echo $(ls -l build)
+            if [ -f "./build/index.html" ]; then
               echo "File exists."
             else
               echo "File does not exist."
               exit 1
             fi
-#  verify-comment:
