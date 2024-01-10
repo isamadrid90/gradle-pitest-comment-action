@@ -1,0 +1,24 @@
+name: Close stale issues
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+          stale-issue-message: |
+            🧟‍♀️Hello! This is automatic message to remind you that this issue has not had any recent activity and may be closed soon. If you still have any questions or concerns, please feel free to let us know how we can help.
+            
+            Thank you for your contributions ⭐
+
+          stale-pr-message: |
+            🧟‍♀️Hello! This is an automatic message to let you know that, due to inactivity, we decided to close this pull request. Please don't let it discourage you to contribute in the future.
+
+            Thank you for your contributions ⭐
+
+          operations-per-run: 10  # The maximum number of operations per run, used to control rate limiting.
