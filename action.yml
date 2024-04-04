@@ -86,7 +86,7 @@ runs:
               "================================ \n" +
               mutationSummaryFormatted +
               "\n" +
-              "> Check artifacts for the complete report"
+              "*Check artifacts for the complete report*"
             
             // Post comment
             await github.rest.issues.createComment({
