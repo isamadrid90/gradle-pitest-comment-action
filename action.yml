@@ -84,9 +84,9 @@ runs:
             const mutationSummaryFormatted = mutationSummary.replace(/=/g, '').replace(/>>/g, '\n')
             const message = "🧟‍♀ Mutation Testing Summary ️🧟‍♀️\n" +
               "================================ \n" +
-              mutationSummaryFormatted + "\n" +
-              "================================ \n" +
-              "Check artifacts for the complete report"
+              mutationSummaryFormatted +
+              "\n" +
+              "> Check artifacts for the complete report"
             
             // Post comment
             await github.rest.issues.createComment({
