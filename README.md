@@ -27,7 +27,7 @@ Prerequisites 📝
 
 ```kotlin
 plugins {
-    id("info.solidsoft.pitest") version "1.7.0"
+    id("info.solidsoft.pitest") version "1.15.0"
 }
 ```
 
@@ -35,9 +35,9 @@ plugins {
 
 ```kotlin
 pitest {
-    setProperty("junit5PluginVersion", "0.12")
-    setProperty("targetClasses", listOf("package-to-check"))
-    setProperty("outputFormats", listOf("HTML")) //this is important because it will update it as an artifact
+    junit5PluginVersion = "1.2.1"
+    targetClasses= listOf("package-to-check")
+    outputFormats = listOf("HTML") //this is important because it will update it as an artifact
 }
 ```
 
@@ -47,7 +47,7 @@ How to use it 🛠️
 Add action as step
 
 ```yaml
-uses: isamadrid90/gradle-pitest-comment-action@v1.0.0-beta
+uses: isamadrid90/gradle-pitest-comment-action@v2.0.0
 with:
   repo-token: ${{ secrets.GITHUB_TOKEN }}
   reports-retention: 1
