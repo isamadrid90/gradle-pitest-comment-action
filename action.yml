@@ -34,7 +34,8 @@ runs:
       run: |
         MUTATION_TEST=$(./gradlew pitest)     
         PIT_RESULT=${MUTATION_TEST##*Task :pitest}
-        SUMMARY=${PIT_RESULT##*- Statistics%%Enhanced*}
+        STATISTICS=${PIT_RESULT##*- Statistics}
+        SUMMARY=${STATISTICS%%Enhanced*}
         echo "summary_mutation=$(echo ${SUMMARY%%B*})" >> $GITHUB_OUTPUT
       id: mutation-test-execution
       shell: bash
